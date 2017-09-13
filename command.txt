@@ -1,0 +1,9 @@
+make
+gcc-7 -I/usr/local/include -L/usr/local/lib reference.o run.c test.o util.o -o reference -lgsl -lgslcblas -lm `pkg-config --libs glib-2.0` `gsl-config --libs`
+
+make
+gcc-7 -I/usr/local/include -L/usr/local/lib asx.o run.c test.o util.o -o asx -lgsl -lgslcblas `pkg-config --libs glib-2.0` `gsl-config --libs` -lm
+
+make
+gcc-7 -I/usr/local/include -L/usr/local/lib oski.o run.c test.o util.o -o oski -lgsl -lgslcblas `pkg-config --libs glib-2.0` `gsl-config --libs` -lm
+
