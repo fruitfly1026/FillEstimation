@@ -193,6 +193,7 @@ int main (int argc, char **argv) {
   }
 
   FILE *f = fopen(argv[optind], "r");
+  // Read COO-formatted matrix
   gsl_spmatrix *triples = gsl_spmatrix_fscanf(f);
   fclose(f);
   if (triples == 0) {
@@ -201,6 +202,7 @@ int main (int argc, char **argv) {
     return 1;
   }
 
+  // Convert to CRS Format
   gsl_spmatrix *csr = gsl_spmatrix_crs(triples);
   gsl_spmatrix_free(triples);
 

@@ -55,7 +55,6 @@ int estimate_fill (size_t m,
                    int verbose){
   size_t W = 2 * B;
   int Z[W][W];
-
   double T = 2 * log(B/delta) * B * B / (epsilon * epsilon);
   size_t s;
   //s = ((T - T/nnz) + sqrt((T - T / nnz) * (T - T / nnz)  + 4 * T * (1 + T / N)))/(2 + 2 * T / nnz);
@@ -67,7 +66,8 @@ int estimate_fill (size_t m,
   size_t *samples_i = (size_t*)malloc(s*sizeof(size_t));
   size_t *samples_j = (size_t*)malloc(s*sizeof(size_t));
   random_choose(samples, s, 0, nnz);
-
+  
+  
   //Create arrays of i and j
   sort(samples, s);
   {

@@ -55,6 +55,7 @@ int test (size_t m,
   }
   time += wall_time();
 
+  
   printf("{\n");
   size_t i = 0;
   if (results) {
@@ -74,8 +75,8 @@ int test (size_t m,
     printf("  ]%s\n", clock ? "," : "");
   }
   if (clock) {
-    printf("  \"time_total\": %.*e,\n", DECIMAL_DIG, time);
-    printf("  \"time_mean\": %.*e%s\n", DECIMAL_DIG, time/trials, 0 ? "," : "");
+    printf("  \"time_total\": %.2lf s, \n", time);
+    printf("  \"time_mean\": %.2lf%s s\n", time/trials, 0 ? "," : "");
   }
   printf("\n}\n");
 
