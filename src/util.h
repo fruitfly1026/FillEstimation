@@ -2,7 +2,6 @@
 
 #include <stdlib.h>
 
-
 typedef int IndexType;
 typedef float ValueType;
 
