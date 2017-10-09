@@ -77,7 +77,7 @@ static int EstimateBlockCounts(const size_t * ptr, const size_t * ind,
    */
 
   assert(n >= 1);
-  block_count = malloc(sizeof(size_t) * B * n);
+  block_count = (size_t*)malloc(sizeof(size_t) * B * n);
   if (block_count == NULL) {
     return -1;
   }
@@ -234,7 +234,7 @@ int estimate_fill (size_t m,
   int err;
   int j = 0;
 
-  nb_est = malloc(sizeof(size_t) * B);
+  nb_est = (size_t*)malloc(sizeof(size_t) * B);
   if (nb_est == NULL)
     return -1;
 

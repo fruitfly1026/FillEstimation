@@ -130,3 +130,31 @@ size_t search_strict (const size_t *stuff, size_t lo, size_t hi, size_t key) {
   }
   return lo;
 }
+
+
+void * aligned_malloc(
+    size_t const bytes)
+{
+  void * ptr;
+  int const success = posix_memalign(&ptr, 64, bytes);
+
+  if(success != 0) {
+    switch(success) {
+    case ENOMEM:
+      fprintf(stderr, "posix_memalign() returned ENOMEM. "
+                      "Insufficient memory.\n");
+      break;
+    case EINVAL:
+      fprintf(stderr, "posix_memalign() returned EINVAL. "
+                      "Alignment must be power of two.\n");
+      break;
+    default:
+      fprintf(stderr, "posix_memalign() returned '%d'.\n", success);
+      break;
+    }
+
+    ptr = NULL;
+  }
+
+  return ptr;
+}
