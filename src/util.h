@@ -3,15 +3,8 @@
 #include <stdlib.h>
 
 
-typedef unsigned int IndexType;
+typedef int IndexType;
 typedef float ValueType;
-
-typedef enum
-{
-  CSF_SORTED_SMALLFIRST, /** sort the modes in non-decreasing order */
-  CSF_SORTED_BIGFIRST,   /** sort the modes in non-increasing order */
-  CSF_MODE_CUSTOM        /** custom mode ordering. dim_perm must be set! */
-} csf_mode_type;
 
 
 #define MAX_NMODES 8
@@ -38,6 +31,3 @@ void random_choose (size_t *samples, size_t n, size_t lo, size_t hi);
 void sort (size_t *stuff, size_t n);
 size_t search (const size_t *stuff, size_t lo, size_t hi, size_t key);
 size_t search_strict (const size_t *stuff, size_t lo, size_t hi, size_t key);
-
-
-void * aligned_malloc(size_t const bytes);
